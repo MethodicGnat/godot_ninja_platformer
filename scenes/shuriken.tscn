@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bro6magp8igb1"]
+
+[ext_resource type="Texture2D" uid="uid://dy2n8ake4j7rc" path="res://assets/Shuriken.png" id="1_7ccba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k18gy"]
+radius = 4.0
+
+[node name="shuriken" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ccba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k18gy")

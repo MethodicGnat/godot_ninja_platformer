@@ -1,0 +1,305 @@
+[gd_scene load_steps=9 format=3 uid="uid://hke2ly8p26ch"]
+
+[ext_resource type="Theme" uid="uid://ni0xkjyo5o85" path="res://themes/scoreboard_theme.tres" id="1_ucmtr"]
+[ext_resource type="Script" uid="uid://caoh6fshvutbf" path="res://scripts/scoreboard_ui.gd" id="1_w5fga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5fga"]
+bg_color = Color(0.588235, 0.662745, 1, 0.309804)
+border_width_left = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_g67ru"]
+font_names = PackedStringArray("Pixel Operator 8")
+
+[sub_resource type="Theme" id="Theme_cxde7"]
+default_font = SubResource("SystemFont_g67ru")
+default_font_size = 24
+
+[sub_resource type="Animation" id="Animation_g67ru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VBoxContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Label/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Label/Grade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/VBoxContainer/Time:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/VBoxContainer/Score:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/Button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_w5fga"]
+resource_name = "entrance"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VBoxContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Label/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.38),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Label/Grade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/VBoxContainer/Time:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/VBoxContainer/Score:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/Button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxde7"]
+_data = {
+&"RESET": SubResource("Animation_g67ru"),
+&"entrance": SubResource("Animation_w5fga")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5fga")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.625346, 0.848023, 0.944216, 1)
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5fga")
+
+[node name="VBoxContainer" type="GridContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -20.0
+offset_bottom = 84.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_ucmtr")
+columns = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "TIME"
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "SCORE"
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(215, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -215.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme = ExtResource("1_ucmtr")
+
+[node name="Label" type="Label" parent="Panel/Label"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 54.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "GRADE"
+
+[node name="Grade" type="Label" parent="Panel/Label"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+uppercase = true
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_cxde7")
+text = "RETRY?"
+
+[node name="Comment" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cxde7")
+}
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5xugyedopqyk"]
+
+[ext_resource type="Texture2D" uid="uid://bu2oe2j1orlwq" path="res://assets/dojo.png" id="1_gjfcs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtgmq"]
+size = Vector2(85, 80)
+
+[node name="dojo" type="Area2D"]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21.5, 4)
+shape = SubResource("RectangleShape2D_wtgmq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gjfcs")
